@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: app-cloud-order
+  cloud:
+    config:
+      profile: dev
+      discovery:
+        service-id: config-server
+        enabled: true
+###集群地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+### consul 配置
+#cloud:
+#  consul:
+#    host: localhost
+#    port: 8500
+#    discovery:
+#      hostname: 10.16.8.83
+
+### zookeeper 配置
+#cloud:
+#  zookeeper:
+#    connect-string: 127.0.0.1:2181
+
+#刷新配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
